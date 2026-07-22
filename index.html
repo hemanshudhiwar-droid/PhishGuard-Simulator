@@ -1,1 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Awareness Demo | Phishing Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <div class="container">
+        <!-- Step 1: The Lure -->
+        <div id="lure-screen" class="card">
+            <h1>🎁 Claim Your Free Reward!</h1>
+            <p>Enter your phone number to receive your cash prize instantly.</p>
+            <input type="text" id="targetInput" placeholder="Enter phone number..." autocomplete="off">
+            <button onclick="triggerSimulation()">Claim Now</button>
+        </div>
+
+        <!-- Step 2: Fake Exfiltration Animation -->
+        <div id="sim-screen" class="card hidden">
+            <h2 class="warning">⚠️ ANALYZING DEVICE DATA...</h2>
+            <p id="log-text">Connecting to remote node...</p>
+            <div class="loader"></div>
+        </div>
+
+        <!-- Step 3: The Educational Reveal -->
+        <div id="edu-screen" class="card hidden">
+            <h1 class="success">🚨 SECURITY AWARENESS SIMULATION</h1>
+            <p><strong>You just fell for a simulated phishing trap!</strong></p>
+            <p>No data was stolen, but real hackers use this exact method to manipulate targets through greed and urgency.</p>
+            
+            <div class="tips">
+                <h3>How to Protect Yourself:</h3>
+                <ul>
+                    <li>Never trust unearned "free money" links.</li>
+                    <li>Always check the actual domain URL before entering data.</li>
+                    <li>Recognize that urgency is a psychological manipulation tactic.</li>
+                </ul>
+            </div>
+            <button onclick="resetApp()">Try Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
