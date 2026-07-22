@@ -1,41 +1,29 @@
-body {
-    background-color: #0b0f19;
-    color: #f8fafc;
-    font-family: 'Courier New', Courier, monospace;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+function triggerSimulation() {
+    const inputVal = document.getElementById('targetInput').value;
+    if(!inputVal) {
+        alert("Please enter a phone number first!");
+        return;
+    }
+
+    document.getElementById('lure-screen').classList.add('hidden');
+    document.getElementById('sim-screen').classList.remove('hidden');
+
+    setTimeout(() => {
+        document.getElementById('log-text').innerText = "[+] Extracting browser metadata & IP...";
+    }, 1500);
+
+    setTimeout(() => {
+        document.getElementById('log-text').innerText = "[+] Syncing logs to remote server...";
+    }, 3000);
+
+    setTimeout(() => {
+        document.getElementById('sim-screen').classList.add('hidden');
+        document.getElementById('edu-screen').classList.remove('hidden');
+    }, 4500);
 }
-.card {
-    background: #1e293b;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    width: 350px;
-    text-align: center;
+
+function resetApp() {
+    document.getElementById('targetInput').value = '';
+    document.getElementById('edu-screen').classList.add('hidden');
+    document.getElementById('lure-screen').classList.remove('hidden');
 }
-input {
-    width: 80%;
-    padding: 10px;
-    margin: 15px 0;
-    background: #0f172a;
-    border: 1px: solid #334155;
-    color: #fff;
-    border-radius: 6px;
-}
-button {
-    background: #38bdf8;
-    color: #0b0f19;
-    border: none;
-    padding: 10px 20px;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
-}
-button:hover { background: #7dd3fc; }
-.hidden { display: none; }
-.warning { color: #f43f5e; }
-.success { color: #22c55e; font-size: 1.2rem; }
-.tips { text-align: left; font-size: 0.9rem; margin: 15px 0; background: #0f172a; padding: 10px; border-radius: 6px; }
